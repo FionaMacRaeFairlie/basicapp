@@ -1,0 +1,37 @@
+<html>
+<head>
+    <title>Basic React</title>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="application/javascript" src="https://unpkg.com/react@16.0.0/umd/react.production.min.js"></script>
+    <script type="application/javascript"
+        src="https://unpkg.com/react-dom@16.0.0/umd/react-dom.production.min.js"></script>
+    <script type="application/javascript" src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+    <script>
+        const recipeIngredients = [
+            "175g/6oz self-raising flour",
+            "1 rounded tsp baking powder",
+            "3 large eggs at room temperature",
+            "175g/6oz very soft butter",
+            "175g/6oz golden caster sugar",
+            "½ tsp vanilla extract",
+            "a little sifted icing sugar, for dusting"
+        ];
+        function IngredientsList({ items }) {
+            return React.createElement(
+                "ul",
+                { className: "ingredients" },
+                items.map((ingredient, i) =>
+                    React.createElement("li", { key: i }, ingredient)
+                )
+            );
+        }
+        ReactDOM.render(
+            React.createElement(IngredientsList, { items: recipeIngredients }, null),
+            document.getElementById("root")
+        );
+    </script>
+</body>
+
+</html>
